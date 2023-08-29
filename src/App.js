@@ -1,24 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
 
+import InicioPagina from "./Paginas/InicioPagina"
+import TeologosPagina from "./Paginas/TeologosPagina"
+import ContactoPagina from "./Paginas/ContactPagina"
+import PublicidadPagina from './Paginas/PublicidadPagina';
+import LibrosPagina from './Paginas/LibrosPagina';
+import {Routes, Route, BrowserRouter as Router} from "react-router-dom"
+
+import Nav from "./Componentes/Nav"
+
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+      <Nav />
+      <div className="container pt-4">
+
+        
+          <Routes>
+            <Route path="/" element={<InicioPagina/>} /> 
+            <Route path="/contacto" element={<ContactoPagina />} /> 
+            <Route path="/teologos" element={<TeologosPagina />} />
+            <Route path="/publicidad" element={<PublicidadPagina />} />
+            <Route path="/libros" element={<LibrosPagina />} />
+          </Routes>
+
+      </div>
+    </Router>
+    </>
   );
 }
 
