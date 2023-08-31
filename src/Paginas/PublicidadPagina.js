@@ -67,6 +67,7 @@ export default class WeatherApp extends React.Component {
             {weatherData.weather && weatherData.weather[0] && (
               <p><b style={{color:'white'}}>Clima:</b> {weatherData.weather[0].description}</p>
             )}
+            <div style={{color:'#cb3636', fontWeight: "bold", margin: "10px", textShadow: '1px 1px 20px white' }}>Psdt: Si deseas ingresar otra ciudad, recarga la página para que puedas ver los resultados.</div>
           </div>
         )}
       </div>
