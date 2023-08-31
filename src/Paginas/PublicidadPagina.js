@@ -1,32 +1,45 @@
-import React from "react";
+import React from 'react';
 
-export default class PublicidadPagina extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            lanzamientos: []
-        }
-    }
+export default class WeatherApp extends React.Component {
+  state = {
+    weatherData: null,
+  };
 
-    componentDidMount() {
-        fetch("https://musicbrainz.org/ws/2/release?artist=9fdaa16b-a6c4-4831-b87c-bc9ca8ce7eaa&fmt=json")
-        .then(res => res.json())
-        .then((result) => {
-            console.log(result)
-            this.setState({
-                lanzamientos: result.releases
-            })
-        })
-    }
+  componentDidMount() {
+    const apiKey = '46ef44ed62154f98d91a333a6845fec9'; // Reemplaza con tu clave de API de OpenWeatherMap
+    const city = 'California'; // Cambia a la ciudad para la que deseas obtener el pronóstico
 
-    render() {
-        return (
-             <>
-                <h2 className="my-4">Los lanzamientos de la banda the Who:</h2>
-                {this.state.lanzamientos.map((lanzamiento) => (
-                    <p>{lanzamiento.title} ({lanzamiento.date})</p>
-                ))}
-             </>
-        );
-    }
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ weatherData: data });
+      })
+      .catch(error => {
+        console.error('Error fetching weather data:', error);
+      });
+  }
+
+  render() {
+    const { weatherData } = this.state;
+
+    return (
+      <div>
+        <h1>Weather App</h1>
+        {weatherData && (
+          <div>
+            <h2>{weatherData.name}</h2>
+            {weatherData.sys && weatherData.sys.country && (
+              <p>Country: {weatherData.sys.country}</p>
+            )}
+            {weatherData.main && (
+              <p>Temperature: {weatherData.main.temp}°C</p>
+            )}
+            {weatherData.weather && weatherData.weather[0] && (
+              <p>Weather: {weatherData.weather[0].description}</p>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
 }

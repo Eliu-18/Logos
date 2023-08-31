@@ -3,7 +3,7 @@ import React from "react";
 export default class Nav extends React.Component {
     render() {
         return (
-            <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+          <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
             <div class="container-fluid">
               <a class="navbar-brand" href="/">LOGOS</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,8 +22,9 @@ export default class Nav extends React.Component {
                       Secciones
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Iglesia</a></li>
+                      <li><a class="dropdown-item" href="/iglesia">Iglesia</a></li>
                       <li><a class="dropdown-item" href="/libros">Libros</a></li>
+                      <li><a class="dropdown-item" href="/declaracionDoctrinal">Declaración Doctrinal</a></li>
                       <li><hr class="dropdown-divider"/></li>
                       <li><a class="dropdown-item" href="/publicidad">Publicidad</a></li>
                     </ul>
@@ -32,10 +33,6 @@ export default class Nav extends React.Component {
                     <a class="nav-link" href="/contacto">Contacto</a>
                   </li>
                 </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
-                  <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
               </div>
             </div>
           </nav>

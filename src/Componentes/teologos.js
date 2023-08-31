@@ -18,16 +18,20 @@ export default class Teologo extends React.Component {
 
     render() {
         return (
-             <div className={"row my-4 " + (this.state.escondido ? "d-none" : "")}>
-                <div className="col-12 d-flex align-items-center">
+            <div className="row my-4">
+                <div className={"col-12 d-flex align-items-center " + (this.state.escondido ? "d-none" : "")}>
                     <img src={this.props.img} className="teologo-img" />
                     <div className="px-3">
                         <h2>{this.props.nombre}</h2>
                         <p>{this.props.descripcion}</p>
-                        <button className="btn btn-danger" onClick={this.toggleEsconder}>Ocultar</button>
                     </div>
                 </div>
-             </div>
+                <div className="col-12">
+                    <button className={"btn " + (this.state.escondido ? "btn-success" : "btn-danger")} onClick={this.toggleEsconder}>
+                        {this.state.escondido ? "Mostrar" : "Ocultar"}
+                    </button>
+                </div>
+            </div>
         );
     }
 }
