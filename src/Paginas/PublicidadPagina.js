@@ -57,7 +57,7 @@ export default class WeatherApp extends React.Component {
         </div>
         {weatherData && (
           <div>
-            <h2 style={{color:'#cb3636'}}>{weatherData.name}</h2>
+            <h2 style={{color:'#cb3636'}}>{weatherData.name}:</h2>
             {weatherData.sys && weatherData.sys.country && (
               <p><b style={{color:'white'}}>País:</b> {weatherData.sys.country}</p>
             )}
